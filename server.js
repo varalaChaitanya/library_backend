@@ -15,8 +15,8 @@ app.use(cors()); // in production set origin to your frontend domain
 app.use(express.json());
 
 // mount routers
-app.use("/api/auth", authRoutes);
-app.use("/api/books", bookRoutes);
+app.use("/auth", authRoutes);
+app.use("/books", bookRoutes);
 
 app.get("/", (req, res) => res.send("Book Library API is running"));
 
