@@ -11,7 +11,15 @@ const bookRoutes = require("./routes/books");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors()); // in production set origin to your frontend domain
+app.use(cors({
+  origin: [
+    "https://library-frontend-varalachaitanyas-projects.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+ // in production set origin to your frontend domain
 app.use(express.json());
 
 // mount routers
